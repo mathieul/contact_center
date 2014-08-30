@@ -7,7 +7,7 @@ class CreateContactCenterBackendAgents < ActiveRecord::Migration
       t.string :phone_type,   default: 'twilio_client'
       t.string :phone_number
       t.string :phone_ext
-      t.string :sip_number
+      t.string :sip_uri
 
       t.timestamps null: false
     end

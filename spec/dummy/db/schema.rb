@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 20140830032928) do
     t.string   "phone_type",   default: "twilio_client"
     t.string   "phone_number"
     t.string   "phone_ext"
-    t.string   "sip_number"
+    t.string   "sip_uri"
     t.datetime "created_at",                             null: false
     t.datetime "updated_at",                             null: false
   end
