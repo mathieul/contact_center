@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140830032928) do
+ActiveRecord::Schema.define(version: 20140830170805) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,5 +29,22 @@ ActiveRecord::Schema.define(version: 20140830032928) do
   end
 
   add_index "contact_center_agents", ["username"], name: "index_contact_center_agents_on_username", using: :btree
+
+  create_table "contact_center_calls", force: true do |t|
+    t.string   "sid"
+    t.string   "from"
+    t.string   "to"
+    t.integer  "direction"
+    t.integer  "call_status",     default: 0
+    t.string   "state",                       null: false
+    t.datetime "connected_at"
+    t.datetime "disconnected_at"
+    t.integer  "agent_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "contact_center_calls", ["agent_id"], name: "index_contact_center_calls_on_agent_id", using: :btree
+  add_index "contact_center_calls", ["sid"], name: "index_contact_center_calls_on_sid", using: :btree
 
 end
