@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 module ContactCenter
-  RSpec.describe Agent, type: :model, focus: true do
+  RSpec.describe Agent, type: :model do
     describe "model basics" do
       context "validation" do
         it "requires a username" do

@@ -1,5 +1,5 @@
 FactoryGirl.define do
-  factory :agent, class: ContactCenter::Agent do
+  factory :agent, aliases: [:offline_agent], class: ContactCenter::Agent do
     sequence(:username) { |n| "agent#{n}" }
     name                "Agent Smith"
 
