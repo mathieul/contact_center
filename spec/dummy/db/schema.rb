@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 20140830032928) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "contact_center_backend_agents", force: true do |t|
+  create_table "contact_center_agents", force: true do |t|
     t.string   "username",                               null: false
     t.string   "status",       default: "offline"
     t.string   "name",                                   null: false
@@ -28,6 +28,6 @@ ActiveRecord::Schema.define(version: 20140830032928) do
     t.datetime "updated_at",                             null: false
   end
 
-  add_index "contact_center_backend_agents", ["username"], name: "index_contact_center_backend_agents_on_username", using: :btree
+  add_index "contact_center_agents", ["username"], name: "index_contact_center_agents_on_username", using: :btree
 
 end

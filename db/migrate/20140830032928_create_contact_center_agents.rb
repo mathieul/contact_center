@@ -1,6 +1,6 @@
-class CreateContactCenterBackendAgents < ActiveRecord::Migration
+class CreateContactCenterAgents < ActiveRecord::Migration
   def change
-    create_table :contact_center_backend_agents do |t|
+    create_table :contact_center_agents do |t|
       t.string :username,     null: false
       t.string :status,       default: 'offline'
       t.string :name,         null: false
@@ -12,6 +12,6 @@ class CreateContactCenterBackendAgents < ActiveRecord::Migration
       t.timestamps null: false
     end
 
-    add_index :contact_center_backend_agents, :username
+    add_index :contact_center_agents, :username
   end
 end

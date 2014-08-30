@@ -9,7 +9,7 @@ require "action_mailer/railtie"
 # require "rails/test_unit/railtie"
 
 Bundler.require(*Rails.groups)
-require "contact_center_backend"
+require "contact_center"
 
 module Dummy
   class Application < Rails::Application

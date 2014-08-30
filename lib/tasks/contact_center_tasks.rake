@@ -1,4 +1,4 @@
 # desc "Explaining what the task does"
-# task :contact_center_backend do
+# task :contact_center do
 #   # Task goes here
 # end

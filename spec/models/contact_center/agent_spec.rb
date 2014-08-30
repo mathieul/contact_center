@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-module ContactCenterBackend
+module ContactCenter
   RSpec.describe Agent, type: :model, focus: true do
     describe "model basics" do
       context "validation" do

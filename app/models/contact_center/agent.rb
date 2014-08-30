@@ -1,4 +1,4 @@
-module ContactCenterBackend
+module ContactCenter
   class Agent < ActiveRecord::Base
     include Concerns::AgentStateMachine
 

@@ -1,4 +1,4 @@
-module ContactCenterBackend
+module ContactCenter
   module Concerns::AgentStateMachine
     extend ActiveSupport::Concern
 

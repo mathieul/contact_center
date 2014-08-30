@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
 
-  mount ContactCenterBackend::Engine => "/contact_center_backend"
+  mount ContactCenter::Engine => "/contact_center"
 end

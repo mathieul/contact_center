@@ -1,2 +1,2 @@
-ContactCenterBackend::Engine.routes.draw do
+ContactCenter::Engine.routes.draw do
 end
