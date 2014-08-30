@@ -1,13 +1,17 @@
 ENV["RAILS_ENV"] ||= 'test'
 require 'spec_helper'
-require File.expand_path("../../config/environment", __FILE__)
+require File.expand_path("dummy/config/environment", __dir__)
 require 'rspec/rails'
+require 'database_cleaner'
+require 'factory_girl'
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 
 # Checks for pending migrations before tests are run.
 ActiveRecord::Migration.maintain_test_schema!
-DatabaseCleaner.strategy = :truncation
+
+DatabaseCleaner.clean_with :truncation
+DatabaseCleaner.strategy = :transaction
 
 RSpec.configure do |config|
   config.fixture_path = "#{::Rails.root}/spec/fixtures"

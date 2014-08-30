@@ -1,4 +1,4 @@
 module ContactCenterBackend
-  module ApplicationHelper
+  class Agent < ActiveRecord::Base
   end
 end
