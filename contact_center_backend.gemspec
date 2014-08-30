@@ -18,6 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency "rails", "~> 4.2.0.beta1"
   s.add_dependency "twilio-ruby", "~> 3.12.2"
+  s.add_dependency "state_machine", "~> 1.2.0"
 
   s.add_development_dependency "pg"
   s.add_development_dependency "rspec-rails"
