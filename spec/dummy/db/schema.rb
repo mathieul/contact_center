@@ -35,8 +35,8 @@ ActiveRecord::Schema.define(version: 20140830170805) do
     t.string   "from"
     t.string   "to"
     t.integer  "direction"
-    t.integer  "call_status",     default: 0
-    t.string   "state",                       null: false
+    t.string   "provider_status"
+    t.integer  "state",           default: 0
     t.datetime "connected_at"
     t.datetime "disconnected_at"
     t.integer  "agent_id"

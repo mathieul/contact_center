@@ -4,7 +4,6 @@ require 'database_cleaner'
 DatabaseCleaner.clean_with :truncation
 DatabaseCleaner.strategy = :transaction
 
-# binding.pry
 RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 
