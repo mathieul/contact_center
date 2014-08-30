@@ -11,7 +11,7 @@ module ContactCenter
     end
 
     describe "#connect!" do
-      let(:call) { create(:call).tap { |call| call.connect! } }
+      let(:call) { create(:call).tap &:connect! }
 
       it "transitions to 'connecting'" do
         expect(call).to be_connecting
@@ -19,7 +19,7 @@ module ContactCenter
     end
 
     describe "#reject!" do
-      let(:call) { create(:call).tap { |call| call.reject! } }
+      let(:call) { create(:call).tap &:reject! }
 
       it "transitions to 'terminated'" do
         expect(call).to be_terminated
@@ -27,7 +27,7 @@ module ContactCenter
     end
 
     describe "#busy!" do
-      let(:call) { create(:connecting_call).tap { |call| call.busy! } }
+      let(:call) { create(:connecting_call).tap &:busy! }
 
       it "transitions to 'terminated'" do
         expect(call).to be_terminated
@@ -35,7 +35,7 @@ module ContactCenter
     end
 
     describe "#call_fail!" do
-      let(:call) { create(:connecting_call).tap { |call| call.call_fail! } }
+      let(:call) { create(:connecting_call).tap &:call_fail! }
 
       it "transitions to 'terminated'" do
         expect(call).to be_terminated
@@ -43,7 +43,7 @@ module ContactCenter
     end
 
     describe "#call_fail!" do
-      let(:call) { create(:connecting_call).tap { |call| call.answer! } }
+      let(:call) { create(:connecting_call).tap &:answer! }
 
       it "transitions to 'in_progress'" do
         expect(call).to be_in_progress
@@ -56,7 +56,7 @@ module ContactCenter
 
     describe "#conference!" do
       context "given a call connecting" do
-        let(:call) { create(:connecting_call).tap { |call| call.conference! } }
+        let(:call) { create(:connecting_call).tap &:conference! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_conference
@@ -64,7 +64,7 @@ module ContactCenter
       end
 
       context "given a call in progress" do
-        let(:call) { create(:in_progress_call).tap { |call| call.conference! } }
+        let(:call) { create(:in_progress_call).tap &:conference! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_conference
@@ -72,7 +72,7 @@ module ContactCenter
       end
 
       context "given a call in progress hold" do
-        let(:call) { create(:in_progress_hold_call).tap { |call| call.conference! } }
+        let(:call) { create(:in_progress_hold_call).tap &:conference! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_conference
@@ -82,7 +82,7 @@ module ContactCenter
 
     describe "#dial_agent!" do
       context "given a call in conference" do
-        let(:call) { create(:in_conference_call).tap { |call| call.dial_agent! } }
+        let(:call) { create(:in_conference_call).tap &:dial_agent! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_progress
@@ -90,7 +90,7 @@ module ContactCenter
       end
 
       context "given a call in progress" do
-        let(:call) { create(:in_progress_call).tap { |call| call.dial_agent! } }
+        let(:call) { create(:in_progress_call).tap &:dial_agent! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_progress
@@ -98,7 +98,7 @@ module ContactCenter
       end
 
       context "given a call in progress hold" do
-        let(:call) { create(:in_progress_hold_call).tap { |call| call.dial_agent! } }
+        let(:call) { create(:in_progress_hold_call).tap &:dial_agent! }
 
         it "transitions to 'in_progress'" do
           expect(call).to be_in_progress
@@ -108,7 +108,7 @@ module ContactCenter
 
     describe "#complete_hold!" do
       context "given a call in progress" do
-        let(:call) { create(:in_progress_call).tap { |call| call.complete_hold! } }
+        let(:call) { create(:in_progress_call).tap &:complete_hold! }
 
         it "transitions to 'in_progress_hold'" do
           expect(call).to be_in_progress_hold
@@ -118,7 +118,7 @@ module ContactCenter
 
     describe "#terminate!" do
       context "by default" do
-        let(:call) { create(:connecting_call).tap { |call| call.terminate! } }
+        let(:call) { create(:connecting_call).tap &:terminate! }
 
         it "transitions to 'terminated'" do
           expect(call).to be_terminated
